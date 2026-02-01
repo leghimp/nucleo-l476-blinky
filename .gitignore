@@ -1,6 +1,7 @@
 # Build outputs
 Debug/
 Release/
+build/
 
 # Object files
 *.o
