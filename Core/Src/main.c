@@ -18,7 +18,6 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32l4xx_hal.h"
 #include "main.h"
 
 /** @addtogroup STM32L4xx_HAL_Examples
