@@ -15,12 +15,31 @@ set(CMAKE_ASM_FLAGS "${CMAKE_C_FLAGS}")
 # Include directories for headers
 include_directories(
     Core/Inc
+    Drivers/STM32L4xx_HAL_Driver/Inc
+    Drivers/CMSIS/Device/ST/STM32L4xx/Include
+    Drivers/CMSIS/Include
 )
 
 # Source files
-set(SOURCES
+set(CORE_SOURCES
     Core/Src/main.c
+    Core/Src/stm32l4xx_it.c
+    Core/Src/system_stm32l4xx.c
+)
+
+set(HAL_SOURCES
+    Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal.c
+    Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_gpio.c
+    Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_rcc.c
+)
+
+set(SOURCES
+    ${CORE_SOURCES}
+    ${HAL_SOURCES}
 )
 
 # Add executable
 add_executable(${PROJECT_NAME}.elf ${SOURCES})
+
+# Define the MCU and HAL macros
+target_compile_definitions(${PROJECT_NAME}.elf PRIVATE STM32L476xx USE_HAL_DRIVER)
