@@ -1,0 +1,21 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug NUCLEO-L476RG (OpenOCD)",
+      "type": "cortex-debug",
+      "request": "launch",
+      "servertype": "openocd",
+      "cwd": "${workspaceFolder}",
+      "executable": "${workspaceFolder}/build/nucleo-l476-blinky.elf",
+      "device": "STM32L476RG",
+      "configFiles": [
+        "interface/stlink.cfg",
+        "target/stm32l4x.cfg"
+      ],
+      "runToEntryPoint": "main",
+      "preLaunchTask": "build",
+      "svdFile": "${workspaceFolder}/STM32L476RG.svd"
+    }
+  ]
+}
